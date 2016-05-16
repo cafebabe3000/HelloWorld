@@ -1,0 +1,13 @@
+.idea/*
+target
+build
+db
+*.iml
+bin
+.DS_Store
+/logs
+/*/logs
+/logback
+/.idea/
+/classes
+.gitinore

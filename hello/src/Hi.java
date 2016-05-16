@@ -6,6 +6,7 @@ public class Hi {
     public static void main(String[] args) {
         System.out.printf("haa");
         System.out.printf("haa");
+        System.out.printf("haa");
     }
 
 }

@@ -13,36 +13,36 @@
     <!-- 引入文件属性 -->
     <!--<context:property-placeholder location="classpath:config/jdbc.properties" />-->
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:config/jdbc.properties"/>
+        <property name="location" value="classpath:jdbc.properties"/>
     </bean>
 
 
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
-        <property name="driverClassName" value="${jdbc.sqlserver.url}" />
-        <property name="url" value="jdbc:mysql://localhost:3306/mybatis" />
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3333/mybatis" />
         <property name="username" value="root" />
-        <property name="password" value="root" />
+        <property name="password" value="123456" />
     </bean>
 
     <!-- 配置mybatis的sqlSessionFactory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="multipleDataSource" />
+        <property name="dataSource" ref="druidDataSource" />
         <!-- 自动扫描mappers.xml文件 ，要加上classpath:com/...-->
         <!--<property name="mapperLocations" value="classpath:com/liuwenjian/mappers/*.xml"></property>-->
         <!-- mybatis配置文件 -->
-        <property name="configLocation" value="classpath:config/mybatis-config.xml"></property>
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
     </bean>
 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.liuwenjian.dao" />
+        <property name="basePackage" value="com.test.mapper" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="mySqlDataSource" />
+        <property name="dataSource" ref="druidDataSource" />
     </bean>
 
     <!-- 配置事务通知属性 -->
@@ -69,8 +69,7 @@
     <!-- 配置事务切面 -->
     <aop:config>
         <aop:pointcut id="serviceOperation"
-                      expression="execution(* com.liuwenjian.service.*.*(..))" />
+                      expression="execution(* com.test.service.*.*(..))" />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />
     </aop:config>
-    <jdbc:embedded-database id="mySqlDataSource"/>
 </beans>

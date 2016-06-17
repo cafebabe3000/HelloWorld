@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	   http://code.alibabatech.com/schema/dubbo
+	   http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--<context:property-placeholder location="classpath:application.properties" ignore-unresolvable="true"/>-->
+    <!--配置中心-->
+    <!--<bean id="propertiesConfiguration" class="com.github.diamond.client.PropertiesConfigurationFactoryBean" />-->
+<!--    <context:property-placeholder properties-ref="propertiesConfiguration" ignore-unresolvable="true"/>
+
+    <context:component-scan base-package="net.xuele.cloudwork.component.impl"/>-->
+    <context:component-scan base-package="com.cloud.service.impl"/>
+    <!--服务名称,用于计算依赖 -->
+    <dubbo:application name="com.cloud.service.provider" owner="cloud" organization="qiaojie"/>
+
+    <!--将服务注册到zookeeper -->
+    <!--<dubbo:registry address="${dubbo.zookeeper.address}" />-->
+    <dubbo:registry  address="zookeeper://zk.infra.middleware.xueleyun.com:2181" timeout="30000"/>
+
+    <dubbo:provider timeout="60000" retries="0" />
+
+    <dubbo:monitor protocol="registry"/>
+
+    <!--采用dubbo协议+kryo序列化实现服务发布 -->
+    <dubbo:protocol name="dubbo" port="20895" threads="500"/>
+
+    <dubbo:consumer timeout="30000" check="false"/>
+
+    <!-- 扫描目录发布dubbo服务 -->
+    <dubbo:annotation package="com.cloud.service.impl"/>
+
+</beans>

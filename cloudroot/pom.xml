@@ -13,6 +13,7 @@
         <module>com-cloud-persist</module>
         <module>com-cloud-service</module>
         <module>com-cloud-web</module>
+        <module>../kafka</module>
     </modules>
     <packaging>pom</packaging>
 

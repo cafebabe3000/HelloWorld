@@ -360,9 +360,16 @@
                 <scope>provided</scope>
             </dependency>-->
 
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>${mybatis.generator.verison}</version>
+                <scope>provided</scope>
+            </dependency>
+
 
             <!--dubbo 序列化支持-->
-           <!-- <dependency>
+            <dependency>
                 <groupId>com.esotericsoftware.kryo</groupId>
                 <artifactId>kryo</artifactId>
                 <version>${kryo.version}</version>
@@ -371,7 +378,7 @@
                 <groupId>de.javakaffee</groupId>
                 <artifactId>kryo-serializers</artifactId>
                 <version>${kryo.serializers.version}</version>
-            </dependency>-->
+            </dependency>
             <!--测试用例依赖内存数据库-->
             <!--<dependency>
                 <groupId>com.h2database</groupId>

@@ -79,16 +79,16 @@
             </dependency>
 
             <!--外部依赖-->
-           <!-- <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-redis</artifactId>
-                <version>${spring-data-redis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>redis.clients</groupId>
-                <artifactId>jedis</artifactId>
-                <version>${jedis.version}</version>
-            </dependency>-->
+            <!-- <dependency>
+                 <groupId>org.springframework.data</groupId>
+                 <artifactId>spring-data-redis</artifactId>
+                 <version>${spring-data-redis.version}</version>
+             </dependency>
+             <dependency>
+                 <groupId>redis.clients</groupId>
+                 <artifactId>jedis</artifactId>
+                 <version>${jedis.version}</version>
+             </dependency>-->
 
             <!-- junit -->
             <dependency>
@@ -98,12 +98,12 @@
                 <scope>test</scope>
             </dependency>
 
-<!--            <dependency>
-                <groupId>de.flapdoodle.embed</groupId>
-                <artifactId>de.flapdoodle.embed.mongo</artifactId>
-                <version>${de.flapdoodle.embed.mongo.version}</version>
-                <scope>test</scope>
-            </dependency>-->
+            <!--            <dependency>
+                            <groupId>de.flapdoodle.embed</groupId>
+                            <artifactId>de.flapdoodle.embed.mongo</artifactId>
+                            <version>${de.flapdoodle.embed.mongo.version}</version>
+                            <scope>test</scope>
+                        </dependency>-->
 
 
             <!--spring framework-->
@@ -145,16 +145,16 @@
             </dependency>
 
             <!--view template -->
- <!--           <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity</artifactId>
-                <version>${velocity.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>velocity-tools</groupId>
-                <artifactId>velocity-tools-view</artifactId>
-                <version>${velocity.toolview.version}</version>
-            </dependency>-->
+            <!--           <dependency>
+                           <groupId>org.apache.velocity</groupId>
+                           <artifactId>velocity</artifactId>
+                           <version>${velocity.version}</version>
+                       </dependency>
+                       <dependency>
+                           <groupId>velocity-tools</groupId>
+                           <artifactId>velocity-tools-view</artifactId>
+                           <version>${velocity.toolview.version}</version>
+                       </dependency>-->
 
             <!-- apache common -->
             <dependency>
@@ -200,11 +200,11 @@
                 <artifactId>logback-core</artifactId>
                 <version>${logback.version}</version>
             </dependency>-->
-           <!-- <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
-            </dependency>-->
+            <!-- <dependency>
+                 <groupId>ch.qos.logback</groupId>
+                 <artifactId>logback-classic</artifactId>
+                 <version>${logback.version}</version>
+             </dependency>-->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>jcl-over-slf4j</artifactId>
@@ -276,20 +276,6 @@
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
                 <version>${zookeeper_version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>log4j</groupId>
-                        <artifactId>log4j</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-api</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-log4j12</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.101tec</groupId>
@@ -316,35 +302,21 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>dubbo</artifactId>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>log4j</groupId>
-                        <artifactId>log4j</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-api</artifactId>
-                    </exclusion>
-                </exclusions>
                 <version>${dubbox.version}</version>
             </dependency>
 
 
             <!-- dubbox tomcat embed -->
-         <!--   <dependency>
-                <groupId>org.apache.tomcat.embed</groupId>
-                <artifactId>tomcat-embed-core</artifactId>
-                <version>${tomcat.embed.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.tomcat.embed</groupId>
-                <artifactId>tomcat-embed-logging-juli</artifactId>
-                <version>${tomcat.embed.version}</version>
-            </dependency>-->
+            <!--   <dependency>
+                   <groupId>org.apache.tomcat.embed</groupId>
+                   <artifactId>tomcat-embed-core</artifactId>
+                   <version>${tomcat.embed.version}</version>
+               </dependency>
+               <dependency>
+                   <groupId>org.apache.tomcat.embed</groupId>
+                   <artifactId>tomcat-embed-logging-juli</artifactId>
+                   <version>${tomcat.embed.version}</version>
+               </dependency>-->
 
             <!-- tomcat jdbc connection pool -->
             <!--<dependency>
@@ -421,19 +393,23 @@
         </dependencies>
     </dependencyManagement>
 
-<!--    <distributionManagement>
+
+    <distributionManagement>
         <repository>
-            <id>releases</id>
-            <name>Nexus Release Repository</name>
-            <url>http://192.168.1.251:8086/nexus/content/repositories/local_nexus_releases</url>
+            <id>user-release</id>
+            <name>User Project Release</name>
+            <url>http://localhost:8081/nexus/content/repositories/releases/</url>
         </repository>
+
         <snapshotRepository>
-            <id>local_nexus_snapshots</id>
-            <url>http://192.168.1.251:8086/nexus/content/repositories/local_nexus_snapshots</url>
+            <id>user-snapshots</id>
+            <name>User Project SNAPSHOTS</name>
+            <url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
-    </distributionManagement>-->
+    </distributionManagement>
+
     <!--build -->
-<!--    <build>
+    <build>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -461,30 +437,30 @@
                         <scanIntervalSeconds>2</scanIntervalSeconds>
                     </configuration>
                 </plugin>
-                &lt;!&ndash;mybatis generator&ndash;&gt;
-                <plugin>
-                    <groupId>org.mybatis.generator</groupId>
-                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <!--mybatis generator-->
+                <!--<plugin>-->
+                    <!--<groupId>org.mybatis.generator</groupId>-->
+                    <!--<artifactId>mybatis-generator-maven-plugin</artifactId>-->
 
-                    <version>1.3.2</version>
-                    <configuration>
-                        <configurationFile>${basedir}/src/test/resources/generatorConfig.xml</configurationFile>
-                        <verbose>true</verbose>
-                        <overwrite>false</overwrite>
-                    </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.mybatis.generator</groupId>
-                            <artifactId>mybatis-generator-core</artifactId>
-                            <version>1.3.2</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>net.xuele.cloudtchhome</groupId>
-                            <artifactId>cloudtchhome-persist</artifactId>
-                            <version>1.0-SNAPSHOT</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
+                    <!--<version>1.3.2</version>-->
+                    <!--<configuration>-->
+                        <!--<configurationFile>${basedir}/src/test/resources/generatorConfig.xml</configurationFile>-->
+                        <!--<verbose>true</verbose>-->
+                        <!--<overwrite>false</overwrite>-->
+                    <!--</configuration>-->
+                    <!--<dependencies>-->
+                        <!--<dependency>-->
+                            <!--<groupId>org.mybatis.generator</groupId>-->
+                            <!--<artifactId>mybatis-generator-core</artifactId>-->
+                            <!--<version>1.3.2</version>-->
+                        <!--</dependency>-->
+                        <!--<dependency>-->
+                            <!--<groupId>net.xuele.cloudtchhome</groupId>-->
+                            <!--<artifactId>cloudtchhome-persist</artifactId>-->
+                            <!--<version>1.0-SNAPSHOT</version>-->
+                        <!--</dependency>-->
+                    <!--</dependencies>-->
+                <!--</plugin>-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
@@ -505,6 +481,5 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-    </build>-->
-
+    </build>
 </project>

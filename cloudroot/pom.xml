@@ -307,7 +307,7 @@
 
 
             <!-- dubbox tomcat embed -->
-            <!--   <dependency>
+               <dependency>
                    <groupId>org.apache.tomcat.embed</groupId>
                    <artifactId>tomcat-embed-core</artifactId>
                    <version>${tomcat.embed.version}</version>
@@ -316,7 +316,7 @@
                    <groupId>org.apache.tomcat.embed</groupId>
                    <artifactId>tomcat-embed-logging-juli</artifactId>
                    <version>${tomcat.embed.version}</version>
-               </dependency>-->
+               </dependency>
 
             <!-- tomcat jdbc connection pool -->
             <!--<dependency>

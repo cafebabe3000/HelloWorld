@@ -11,10 +11,9 @@ public abstract class BaseTest {
     @BeforeClass
     public static void setu() {
         try {
-
             context = new ClassPathXmlApplicationContext(new String[] { "classpath:service-test.xml" });
             context.start();
-            services = context.getBean("services",MyServices.class);
+            services = context.getBean("myServices",MyServices.class);
         } catch (Exception e) {
             e.printStackTrace();
         }

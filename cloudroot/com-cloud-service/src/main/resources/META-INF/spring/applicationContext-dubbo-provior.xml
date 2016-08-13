@@ -21,7 +21,7 @@
 
     <!--将服务注册到zookeeper -->
     <!--<dubbo:registry address="${dubbo.zookeeper.address}" />-->
-    <dubbo:registry  address="zookeeper://zk.infra.middleware.xueleyun.com:2181" timeout="30000"/>
+    <dubbo:registry  address="zookeeper://127.0.0.1:2181" timeout="30000"/>
 
     <dubbo:provider timeout="60000" retries="0" />
 
